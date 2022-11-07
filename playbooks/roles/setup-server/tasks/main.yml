@@ -1,0 +1,19 @@
+---
+# tasks file for setup-server
+  - name: Copy Files
+    remote_user: root
+    ansible.builtin.copy:
+        src: "{{ BASE_DIR }}"
+        dest: "{{ REMOTE_DIR }}"
+        mode: 0777
+
+  - name: Create app.js
+    remote_user: root
+    template:
+        src: app.j2
+        dest: "{{ REMOTE_DIR }}/services/rhymes-api/static/app.js"
+
+  - name: Compose Up Server
+    remote_user: root
+    ansible.builtin.shell: |
+        docker-compose -f {{ REMOTE_DIR }}/{{ PROJECT_NAME }}/docker-compose.prod.yml up -d --build

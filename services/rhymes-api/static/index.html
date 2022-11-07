@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>JavaScript Form Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<form action="signup.html" method="post" id="get_rhyme">
+				<h1>Get Rhyme</h1>
+				<div class="field">
+					<!-- <label for="name">Enter your word:</label> -->
+					<input type="text" id="name" name="name" placeholder="Enter word" />
+					<small></small>
+				</div>
+				<div class="field">
+					<button type="submit" class="full">Done!</button>
+				</div>
+			</form>
+		</div>
+    <div class="container">
+			<form action="signup.html" method="post" id="add_rhyme">
+				<h1>Add Rhyme</h1>
+				<div class="field">
+					<!-- <label for="name">Enter word and rhyme:</label> -->
+					<input type="text" id="name1" name="name" placeholder="Enter word" />
+					<small></small>
+				</div>
+        <div class="field">
+					<!-- <label for="name">Enter word and rhyme:</label> -->
+					<input type="text" id="name2" name="name" placeholder="Enter rhyme" />
+					<small></small>
+				</div>
+				<div class="field">
+					<button type="submit" class="full">Done!</button>
+				</div>
+			</form>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>

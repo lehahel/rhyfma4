@@ -54,3 +54,8 @@ def process_rhymes_post():
     db.session.add(Rhyme(word=word, rhyme=rhyme))
     db.session.commit()
     return flask.Response(json.dumps({}), status=204, mimetype='application/json')
+
+
+@app.route('/static/<path:filename>')
+def process_frontend(filename):
+    return flask.send_from_directory(app.config["STATIC_FOLDER"], filename)

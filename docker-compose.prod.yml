@@ -10,10 +10,10 @@ services:
   rhymes-api:
     build:
       context: ./services/rhymes-api
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     command: gunicorn --bind 0.0.0.0:5000 manage:app
-    expose:
-      - 5000
+    ports:
+      - 5000:5000
     env_file:
       - ./.env.prod
     depends_on:
