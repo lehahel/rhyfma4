@@ -11,7 +11,7 @@
     remote_user: root
     template:
         src: app.j2
-        dest: "{{ REMOTE_DIR }}/services/rhymes-api/static/app.js"
+        dest: "{{ REMOTE_DIR }}/rhyfma4/services/rhymes-api/static/app.js"
 
   - name: Compose Up Server
     remote_user: root

@@ -55,7 +55,7 @@
     remote_user: root
     user:
         name: "ubuntu"
-        group: "docker"
+        groups: "docker"
         append: yes
     tags:
       - docker
