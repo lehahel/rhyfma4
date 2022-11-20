@@ -1,5 +1,5 @@
 node {
   stage ('First stage') {
-    sh 'sl -la'
+    sh 'ls -la'
   }
 }
