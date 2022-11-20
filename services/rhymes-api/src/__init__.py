@@ -5,10 +5,6 @@ import datetime
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.inspection import inspect
 
-HOST = '127.0.0.1'
-# HOST = '0.0.0.0'
-PORT = 8083
-
 
 app = flask.Flask("Rifma4e4naya")
 app.config.from_object('src.config.Config')
