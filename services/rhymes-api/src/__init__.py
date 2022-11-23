@@ -24,9 +24,6 @@ class Rhyme(db.Model):
         self.rhyme = rhyme
         self.updated_at = datetime.datetime.now()
 
-    # def serialize(self):
-    #     d = Serializer.serialize(self)
-    #     return d
 
 @app.route('/api/rhymes', methods=['GET'])
 def process_rhymes_get():

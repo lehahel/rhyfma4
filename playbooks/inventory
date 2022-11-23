@@ -1,2 +1,2 @@
 [servers]
-ubuntu1 ansible_ssh_host=127.0.0.1 ansible_port=55003 ansible_user=root
+ubuntu1 ansible_ssh_host=127.0.0.1 ansible_port=55004 ansible_user=root
