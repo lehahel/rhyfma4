@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rhymes-api
+  name: rhymes-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rhymes-api
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rhymes-api
+    spec:
+      containers:
+        - args:
+            - python
+            - manage.py
+            - run
+            - -h
+            - 0.0.0.0
+            - -p
+            - "5000"
+          env:
+            - name: DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE
+                  name: env-dev
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE_URL
+                  name: env-dev
+            - name: FLASK_APP
+              valueFrom:
+                configMapKeyRef:
+                  key: FLASK_APP
+                  name: env-dev
+            - name: FLASK_DEBUG
+              valueFrom:
+                configMapKeyRef:
+                  key: FLASK_DEBUG
+                  name: env-dev
+            - name: SQL_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: SQL_HOST
+                  name: env-dev
+            - name: SQL_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: SQL_PORT
+                  name: env-dev
+          image: rhymes-api
+          name: rhymes-api
+          ports:
+            - containerPort: 5000
+          resources: {}
+          volumeMounts:
+            - mountPath: /usr/src/app/
+              name: rhymes-api-claim0
+      restartPolicy: Always
+      volumes:
+        - name: rhymes-api-claim0
+          persistentVolumeClaim:
+            claimName: rhymes-api-claim0
+status: {}
