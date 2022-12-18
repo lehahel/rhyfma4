@@ -19,7 +19,8 @@ spec:
         app: rhymes-api
     spec:
       containers:
-        - args:
+        - name: rhymes-api
+          args:
             - python
             - manage.py
             - run
@@ -59,7 +60,6 @@ spec:
                   key: SQL_PORT
                   name: env-dev
           image: rhymes-api
-          name: rhymes-api
           ports:
             - containerPort: 5000
           resources: {}
